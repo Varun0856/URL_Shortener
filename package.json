@@ -1,0 +1,34 @@
+{
+  "name": "url_shortener",
+  "version": "1.0.0",
+  "description": "A service which generates short unique ID for given long URL and the unique ID redirects to the original URL",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Varun0856/URL_Shortener.git"
+  },
+  "keywords": [
+    "URL_Shortener"
+  ],
+  "author": "Varun0856",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Varun0856/URL_Shortener/issues"
+  },
+  "homepage": "https://github.com/Varun0856/URL_Shortener#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.0"
+  }
+}
