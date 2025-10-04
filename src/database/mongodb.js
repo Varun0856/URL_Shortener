@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { MONGODB_URI } from "../config/env.js";
 
-if(!MONGODB_URI) throw new Error('Please declare the MONGODB)URI in the env.<production/development>.local')
+if(!MONGODB_URI) throw new Error('Please declare the MONGODB_URI in the env.<production/development>.local')
 
 const connectToDB = async () => {
     try {
