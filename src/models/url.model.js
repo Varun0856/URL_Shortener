@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { nanoid } from "nanoid";
 
 const urlSchema = new mongoose.Schema({
     originalUrl: {
@@ -19,6 +18,11 @@ const urlSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
+
+urlSchema.methods.incrementClicks = async function() {
+    this.clicks += 1;
+    await this.save();
+}
 
 const Url = mongoose.model('Url', urlSchema);
 
