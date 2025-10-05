@@ -21,12 +21,12 @@ const shortenUrl = asyncHandler(async (req, res) => {
 
 const redirectToOriginalUrl = asyncHandler(async (req, res) => {
     const { shortId } = req.params;
-    const originalUrl = await Url.findOne({shortId});
-    if(!originalUrl) {
+    const urlDocs = await Url.findOne({shortId});
+    if(!urlDocs) {
         throw new ApiError(404, 'Original Url for the shortId was not found');
     }
 
-    res.redirect(originalUrl.originalUrl);
+    res.redirect(urlDocs.originalUrl);
 })
 
 export {shortenUrl, redirectToOriginalUrl};
