@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getAnalytics, redirectToOriginalUrl, shortenUrl } from "../controllers/url.controller.js";
-import { limiter } from "../middleware/RateLimiter.js";
+import { limiter } from "../middleware/rateLimiter.middleware.js";
 
 const urlRouter = Router();
 

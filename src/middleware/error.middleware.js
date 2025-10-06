@@ -1,5 +1,7 @@
+import logger from "../utils/winstonLogger.js";
+
 const errorMiddleware = (err, req, res, next) => {
-    console.error("Error :", err);
+    logger.error('Error: ', err);
 
     err.statusCode = err.statusCode || 500;
     err.message = err.message || "Internal Server Error";
