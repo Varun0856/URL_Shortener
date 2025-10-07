@@ -54,8 +54,8 @@ const redirectToOriginalUrl = asyncHandler(async (req, res) => {
 })
 
 const getAnalytics = asyncHandler(async (req, res) => {
-    const shortId = req.params;
-    const urlDocs = await Url.findOne({shortId});
+    const { shortId } = req.params;
+    const urlDocs = await Url.findOne({shortId: shortId});
     if(!urlDocs){
         throw new ApiError(404, "Original Url for the shortId was not found");
     }
