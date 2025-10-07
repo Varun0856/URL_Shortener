@@ -14,6 +14,10 @@ const urlSchema = new mongoose.Schema({
     clicks: {
         type: Number,
         default: 0
+    },
+    expiresAt: {
+        type: Date,
+        required: true
     }
 }, {
     timestamps: true
@@ -22,6 +26,12 @@ const urlSchema = new mongoose.Schema({
 urlSchema.methods.incrementClicks = async function() {
     this.clicks += 1;
     await this.save();
+}
+
+urlSchema.index({expiresAt: 1}, {expireAfterSeconds: 0});
+
+urlSchema.methods.isExpired = function() {
+    return Date.now() > this.expiresAt
 }
 
 const Url = mongoose.model('Url', urlSchema);
