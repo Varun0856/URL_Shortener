@@ -1,2 +1,5 @@
-# URL_Shortener
-URL_Shortner is a service where the input is given as long URL and it generates short unique ID which redirects to the original URL
+# URL_Shortener API
+URL shortener API is an API for the tool that transforms long , complex web addresses into shorter, more manageable links, which then redirect users to the original destination
+
+## Features
+- 

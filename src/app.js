@@ -1,13 +1,12 @@
 import express, { urlencoded } from "express"
 import urlRouter from "./routes/url.route.js";
 import mongoose from "mongoose";
-import logger from "./utils/winstonLogger.js";
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use('/api/v1/url', urlRouter);
+app.use('/api/url', urlRouter);
 
 app.get('/health', (_, res) => {
     const dbStatus = mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected'; 
@@ -26,6 +25,18 @@ app.get('/health', (_, res) => {
         database: dbStatus
     });
     
+})
+
+app.get('/', (_, res) => {
+    res.status(200).json({
+        name: 'URL_Shortener',
+        baseURL: '/api',
+        endpoints: {
+            shortenURl: 'POST /api/url/shorten',
+            redirectToOriginalUrl: 'GET /api/url/:shortId',
+            getAnalytics: 'GET /api/url/analytics/:shortId'
+        }
+    })
 })
 
 export default app;
