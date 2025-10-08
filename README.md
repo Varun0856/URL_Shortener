@@ -71,9 +71,12 @@ npm start
 ```
 
 ### URL Routes
-POST `/api/url/shorten` -> Shorten a long URL (rate-limited, validates input, supports expiration)
-GET `api/url/:shortID` -> Redirects to the original URL if valid and not expired
-GET `api/url/analytics/:shortID` -> Get analytics (click count, timestamps, etc) for a specific short URL
+| Method   | Endpoint                      | Description                                                               |
+| -------- | ----------------------------- | ------------------------------------------------------------------------- |
+| **POST** | `/api/url/shorten`            | Shorten a long URL *(rate-limited, validates input, supports expiration)* |
+| **GET**  | `/api/url/:shortId`           | Redirects to the original URL if valid and not expired                    |
+| **GET**  | `/api/url/analytics/:shortId` | Get analytics (click count, timestamps, etc.) for a specific short URL    |
+
 
 ### Health Check Endpoint
 Check system and database status
