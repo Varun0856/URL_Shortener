@@ -64,7 +64,8 @@ const getAnalytics = asyncHandler(async (req, res) => {
         shortId: urlDocs.shortId,
         clicks: urlDocs.clicks,
         createdAt: urlDocs.createdAt,
-        updatedAt: urlDocs.updatedAt
+        lastUsed: urlDocs.updatedAt,
+        expiresAt: urlDocs.expiresAt
     }
 
     res.status(200).json(
